@@ -1,0 +1,11 @@
+$(document).ready(function(){
+    $("#circle1").click(function(){
+	$("#circle1").animate({
+	    left:'300px',
+		down:'300px',
+	    opacity:'0.5',
+	    height:'100px',
+	    width:'100px'  
+	})
+    });
+});
