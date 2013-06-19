@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>
+JavaScript can write directly into the HTML output stream:
+</p>
+
+<p id="writingToChange">
+JavaScript can change the content of an HTML element.
+</p>
+
+<input id="inputBoxDemo" type="text">
+
+<script>
+// document represents the HTML document that the javascript is embedded within 
+document.write("<h1>This is a heading</h1>");
+document.write("<p>This is a paragraph.</p>");
+
+function textInputBox()
+{
+var x=document.getElementById("inputBoxDemo").value;
+if(x==""||isNaN(x))
+	{
+	alert("Not Numeric");
+	}
+}
+
+
+function clickFunction()
+{
+x=document.getElementById("writingToChange");  // Find the element
+x.innerHTML="<h1> Hello JavaScript! <h1>";    // Change the content
+x.style.color="#ff0000";
+}
+
+
+</script>
+
+<p>
+You can only use <strong>document.write</strong> in the HTML output.
+If you use it after the document has loaded (e.g. in a function), the whole document will be overwritten.
+</p>
+
+<!-- You can use pre-set buttons to alert the user -->
+<button type="button" onclick="clickFunction()"	>Change Text</button>
+<button type="button" onclick="textInputBox()"	>Number Validate</button>
+
+</body>
+</html>
+

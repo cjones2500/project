@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+<!-- This can be used to keep a Javascript external 
+<script src="myScript.js"></script> -->	
+
+<h1>My First Web Page</h1>
+
+<p>My First Paragraph.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<script>
+function myFunction()
+{
+document.write("Oops! The document disappeared!");
+}
+</script>
+
+<p id="demo2">A Paragraph.</p>
+
+<div id="myDIV">A DIV.</div>
+
+<script>
+document.getElementById("demo2").innerHTML="<h1>Hello Dolly</h1>";
+document.getElementById("myDIV").innerHTML="<h4>How are you?</h4>";
+</script>
+
+</body>
+</html> 
