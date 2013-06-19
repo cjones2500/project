@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<script>
+var person={
+firstname : "John",
+lastname  : "Doe",
+location  : "Oxford", 
+id        :  5566
+};
+//Interestingly, location is the string for the current file location automatically
+document.write(person.lastname + "<br>");
+document.write(person["lastname"] + "<br>");
+document.write("<h1>"+ person.location + "</h1>"); 
+
+// There is a second way of declaring an object 
+var personv2=new Object();
+personv2.firstname="v2 -John";
+personv2.lastname="v2 -Doe";
+personv2.age=50;
+personv2.eyecolor="v2 -blue"; 
+document.write(personv2.firstname + " is " + personv2.age + " years old.");
+
+</script>
+
+</body>
+</html>
+
+
+

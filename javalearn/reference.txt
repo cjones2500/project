@@ -1,0 +1,7 @@
+HTML TAG Getting
+You can get the element by HTML Tag and even pick out an element you are interested in!!!
+var y=x.getElementsByTagName("p");
+document.write('First paragraph inside "main" is ' + y[0].innerHTML);
+
+
+document.write(Date()); - This is a keyword 

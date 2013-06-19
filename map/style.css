@@ -1,0 +1,8 @@
+body { margin:0; padding:0; }
+#map { position:absolute; top:0; bottom:0; width:100%; }
+.popup {text-align: center;}
+.popup .slideshow {width: 100%;}
+.popup .slideshow .image {display: none;}
+.popup .slideshow .active {display: block;}
+.popup .slideshow img {width: 100%;}
+.popup .slideshow .caption {background: #eee;padding: 8px;}

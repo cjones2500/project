@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+<body onload="checkCookies()">
+
+<p>Click the button to execute the <em>displayDate()</em> function.</p>
+
+Enter your name: <input type="text" id="fname" onchange="myFunction()">
+<p>When you leave the input field, a function is triggered which transforms the input text to upper case.</p>
+
+<button id="myBtn">Try it</button>
+
+<script>
+function checkCookies()
+{
+if (navigator.cookieEnabled==true)
+	{
+	alert("Cookies are enabled")
+	}
+else
+	{
+	alert("Cookies are not enabled")
+	}
+}
+
+function myFunction()
+{
+var x=document.getElementById("fname");
+x.value=x.value.toUpperCase();
+}
+
+document.getElementById("myBtn").onclick=function(){displayDate()};
+
+function displayDate()
+{
+document.getElementById("demo").innerHTML=Date();
+}
+</script>
+
+<p id="demo"></p>
+
+</body>
+</html> 
+
