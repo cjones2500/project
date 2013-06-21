@@ -1,22 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="utf-8" />
-    <title>JSON Sample</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  	<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
+  	<script src='http://api.tiles.mapbox.com/mapbox.js/v1.0.4/mapbox.js'></script>
+  	<link href='http://api.tiles.mapbox.com/mapbox.js/v1.0.4/mapbox.css' rel='stylesheet' />
+	<script src="/mapbox.js/assets/leaflet-knn.min.js"></script>
+	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<link type="text/css" rel="stylesheet" href="style.css"/>
+  	<!--[if lte IE 8]>
+    	<link href='http://api.tiles.mapbox.com/mapbox.js/v1.0.4/mapbox.ie.css' rel='stylesheet' >
+  	<![endif]-->
 </head>
-<body>
-    <div id="placeholder"></div>
-    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-    <script>
-  $.getJSON('data.json', function(data) {
-        var output="<ul>";
-        for (var i in data.users) {
-            output+="<li>" + data.users[i].firstName + " " + data.users[i].lastName + "--" + data.users[i].joined.month+"</li>";
-        }
 
-        output+="</ul>";
-        document.getElementById("placeholder").innerHTML=output;
-  });
-    </script>
-</body>
-</html>
+<h1 id="blah"><h1>
+<script>
+  new Ajax.Request('mapdata.geojson', {
+  method:'get',
+  onSuccess: function(transport){
+     var json = transport.responseText.evalJSON();
+   }
+  //document.getElementById("blah").innerHTML=json.features;
+});
+
+
+</script>
+
+
+

@@ -21,6 +21,8 @@ var geoJson = [{
     	}
 }];
 
+
+
 // Add custom popup html to each marker
 map.markerLayer.on('layeradd', function(e) {
     var marker = e.layer;
@@ -31,10 +33,8 @@ map.markerLayer.on('layeradd', function(e) {
     for(var i = 0; i < images.length; i++) {
         var img = images[i];
 
-        slideshowContent += '<div class="image' + (i === 0 ? ' active' : '') + '">' +
-                              '<img src="' + img[0] + '" />' +
-                              '<div class="caption">' + img[1] + '</div>' +
-                            '</div>';
+        slideshowContent += '<div class="image' + (i == 0 ? ' active' : '') + '">' +
+                              '<img src="' + img[0] + '" />'
     }
 
     // Create custom popup content
@@ -44,42 +44,14 @@ map.markerLayer.on('layeradd', function(e) {
                                 slideshowContent +
                             '</div>' +
 							'<h5>' + feature.properties.description + 
-                            '<div class="cycle">' +
-                                '<a href="#" class="prev" onclick="return moveSlide(\'prev\')">&laquo; Previous</a>' +
-                                '<a href="#" class="next" onclick="return moveSlide(\'next\')">Next &raquo;</a>' +
-                            '</div>'
                         '</div>';
 
     // http://leafletjs.com/reference.html#popup
-    marker.bindPopup(popupContent,{
-        closeButton: false,
-        minWidth: 320
-    });
+    marker.bindPopup(popupContent,{closeButton: true,minWidth: 200});
 });
 
 // Add features to the map
 map.markerLayer.setGeoJSON(geoJson);
 
-// This example uses jQuery to make selecting items in the slideshow easier.
-// Download it from http://jquery.com
-function moveSlide(direction) {
-    var $slideshow = $('.slideshow'),
-        totalSlides = $slideshow.children().length;
 
-    if (direction === 'prev') {
-        var $newSlide = $slideshow.find('.active').prev();
-        if ($newSlide.index() < 0) {
-            $newSlide = $('.image').last();
-        }
-    } else {
-        var $newSlide = $slideshow.find('.active').next();
-        if ($newSlide.index() < 0) {
-            $newSlide = $('.image').first();
-        }
-    }
-
-    $slideshow.find('.active').removeClass('active').hide();
-    $newSlide.addClass('active').show();
-    return false;
-}
 
