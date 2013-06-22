@@ -1,0 +1,24 @@
+// Add custom popup html to each marker
+map.markerLayer.on('layeradd', function(e) {
+    var marker = e.layer;
+    var feature = marker.feature;
+    var images = feature.properties.images;
+    var slideshowContent = '';
+    
+    for(var i = 0; i < images.length; i++) {
+        var img = images[i];
+        slideshowContent += '<div class="image' + (i == 0 ? ' active' : '') + '">' +
+            '<img src="' + img[0] + '" />'
+    }
+
+    // Create custom popup content
+    var popupContent =  '<div id="' + feature.properties.id + '" class="popup">' +
+        '<h2>' + feature.properties.title + '</h2>' +
+        '<div class="slideshow">' +
+        slideshowContent +
+        '</div>' +
+	'<h5>' + feature.properties.description + 
+        '</div>';
+
+    // http://leafletjs.com/reference.html#popup
+    marker.bindPopup(popupContent,{closeButton: true,minWidth: 200});

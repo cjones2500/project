@@ -1,0 +1,23 @@
+	{ "type": "FeatureCollection",
+		"features": [
+		{	"type": 'Feature',
+			"geometry": { "type": "Point", "coordinates": [-1.25773, 51.75202]},
+			"properties": {
+							'title': 'Oxford University',	
+							'description': 'Pictures of Oxford University',	
+		    				'images':[['http://www.oxford-royale.co.uk/images/oxford-university.jpg','Oxford University Picture 1']]
+						  }
+		}, 
+
+		{	"type"	: 'Feature',
+			"geometry": { "type": "Point", "coordinates": [-74.00, 40.71]},
+			"properties": {
+			    			'title': 'New York City',
+							'description': 'Pictures of New York City',
+			    			'images':[['http://i.imgur.com/exemdwr.png','Peter Minuit is credited with the purchase of the island of Manhattan in 1626.']]
+							}
+		}
+
+						]
+	}
+

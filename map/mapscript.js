@@ -1,57 +1,57 @@
+var food = document.getElementById('Foodies');
+var interestingTalk = document.getElementById('Interesting Talks');
+var markerLayer = new L.LayerGroup();
+var interestLayer = new L.LayerGroup();
+var layerControl = new L.Control.Layers();
+var foodClickCounter;
+var interestClickCounter;
+
+//Need to create a Marker class at some point 
+//Need to design a Marker class for different types and what information is contained on each marker
+//Include activity heat map !!!
+
+//Example of another marker
+//var oxford2 = L.marker([51.75302,-1.25773]).bindPopup('This is Littleton, CO.').addTo(event2);
+
 var map = L.mapbox.map('map', 'examples.map-4l7djmvo')
-	.setView([51.75202, -1.25773], 14)
-	.addControl(L.mapbox.geocoderControl('examples.map-4l7djmvo'));
+    .setView([51.75202, -1.25773], 14)
+    .addControl(L.mapbox.geocoderControl('examples.map-4l7djmvo'));
 
-var geoJson = [{
-	type: 'Feature',
-	"geometry": { "type": "Point", "coordinates": [-1.25773, 51.75202]},
-	"properties": {
-		'title': 'Oxford University',	
-		'description': 'Pictures of Oxford University',	
-        'images':[['http://www.oxford-royale.co.uk/images/oxford-university.jpg','Oxford University Picture 1']]
+//If marker exsists compounds the marker 
+food.onclick = function(e) {
+    if (foodClickCounter >= 1) {
+	markerLayer.clearLayers();
+	foodClickCounter = 0;
     }
-}, 
-{
-	type: 'Feature',
-    "geometry": { "type": "Point", "coordinates": [-74.00, 40.71]},
-    "properties": {
-        'title': 'New York City',
-		'description': 'Pictures of New York City',
-        'images':[['http://i.imgur.com/exemdwr.png','Peter Minuit is credited with the purchase of the island of Manhattan in 1626.']]
-    	}
-}];
-
-
-
-// Add custom popup html to each marker
-map.markerLayer.on('layeradd', function(e) {
-    var marker = e.layer;
-    var feature = marker.feature;
-    var images = feature.properties.images
-    var slideshowContent = '';
-
-    for(var i = 0; i < images.length; i++) {
-        var img = images[i];
-
-        slideshowContent += '<div class="image' + (i == 0 ? ' active' : '') + '">' +
-                              '<img src="' + img[0] + '" />'
+    else{
+	foodClickCounter = 1;
+	L.marker([51.75202,-1.25773]).bindPopup('foodie marker').addTo(markerLayer);//.addTo(map);
+	L.marker([51.75203,-1.25773]).bindPopup('foodie marker2').addTo(markerLayer);//.addTo(map);
+	L.marker([51.75204,-1.25773]).bindPopup('foodie marker3').addTo(markerLayer);//.addTo(map);
+	L.marker([51.75202,-1.25773]).bindPopup('foodie marker4').addTo(markerLayer);//.addTo(map);
+	L.marker([51.75205,-1.25773]).bindPopup('foodie marker5').addTo(markerLayer);//.addTo(map);
+	L.marker([51.75202,-1.25773]).bindPopup('foodie marker6').addTo(markerLayer);//.addTo(map);
+	L.marker([51.75202,-1.25773]).bindPopup('foodie marker7').addTo(markerLayer);//.addTo(map);
+	L.marker([51.75206,-1.25773]).bindPopup('foodie marker8').addTo(markerLayer);//.addTo(map);
+	L.marker([51.75207,-1.25773]).bindPopup('foodie marker9').addTo(markerLayer);//.addTo(map);
+	L.marker([51.75208,-1.25773]).bindPopup('foodie marker10').addTo(markerLayer);//.addTo(map);
+	L.marker([51.75302,-1.25773]).bindPopup('foodie marker11').addTo(markerLayer);//.addTo(map);
+	markerLayer.addTo(map);
     }
+};
 
-    // Create custom popup content
-    var popupContent =  '<div id="' + feature.properties.id + '" class="popup">' +
-                            '<h2>' + feature.properties.title + '</h2>' +
-                            '<div class="slideshow">' +
-                                slideshowContent +
-                            '</div>' +
-							'<h5>' + feature.properties.description + 
-                        '</div>';
+interestingTalk.onclick=  function(e){
+    if (interestClickCounter >=1){
+	interestLayer.clearLayers();
+	interestClickCounter = 0
+    }
+    else{
+	interestClickCounter = 1;
+	L.marker([51.75402,-1.25773]).bindPopup('This is Littleton, CO.').addTo(interestLayer)
+	interestLayer.addTo(map);
+    }
+};
 
-    // http://leafletjs.com/reference.html#popup
-    marker.bindPopup(popupContent,{closeButton: true,minWidth: 200});
-});
-
-// Add features to the map
-map.markerLayer.setGeoJSON(geoJson);
 
 
 
