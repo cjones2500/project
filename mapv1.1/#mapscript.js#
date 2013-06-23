@@ -17,9 +17,11 @@ var interestClickCounter;
 //Example of another marker
 //var oxford2 = L.marker([51.75302,-1.25773]).bindPopup('This is Littleton, CO.').addTo(event2);
 
+function loadMap(){
+
 var map = L.mapbox.map('map', 'examples.map-4l7djmvo')
     .setView([51.75202, -1.25773], 15)
-    .addControl(L.mapbox.geocoderControl('examples.map-4l7djmvo'));
+    //.addControl(L.mapbox.geocoderControl('examples.map-4l7djmvo'));
 
 //If marker exsists compounds the marker 
 food.onclick = function(e) {
@@ -56,6 +58,16 @@ interestingTalk.onclick=  function(e){
     }
 };
 
+}
 
-
+document.addEventListener('DOMContentLoaded', loadMap);
+document.getElementById('locationForm').innerHTML
+function geoCode(address, callback) {
+	var firstPart = 'http://geocoding.cloudmade.com/8ee2a50541944fb9bcedded5165f09d9/geocoding/v2/find.geojs?query='
+	var url = firstPart + encodeURI(address)
+	$.ajaxJSONP({
+	  url: url + '&callback=?',
+	  success: callback
+	})
+}
 
