@@ -60,14 +60,19 @@ interestingTalk.onclick=  function(e){
 
 }
 
-document.addEventListener('DOMContentLoaded', loadMap);
-
-function geoCode(address, callback) {
+/*function geoCode(address, callback) {
 	var firstPart = 'http://geocoding.cloudmade.com/8ee2a50541944fb9bcedded5165f09d9/geocoding/v2/find.geojs?query='
 	var url = firstPart + encodeURI(address)
 	$.ajaxJSONP({
 	  url: url + '&callback=?',
 	  success: callback
 	})
-}
+}*/
+
+document.addEventListener('DOMContentLoaded', loadMap);
+//var geoLocationInput = document.getElementById('locationForm').value;
+//var geoLocationOutput;
+//geoCode(geoLocationInput,geoLocationOutput);
+//document.getElementById('locationForm').innerHTML=geoLocationOutput;
+
 
