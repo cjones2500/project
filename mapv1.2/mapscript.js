@@ -44,6 +44,7 @@ food.onclick = function(e) {
 	L.marker([51.75302,-1.25773]).bindPopup('foodie marker11').addTo(markerLayer);//.addTo(map);
 	markerLayer.addTo(map);
     }
+    
 };
 
 interestingTalk.onclick=  function(e){
@@ -60,19 +61,26 @@ interestingTalk.onclick=  function(e){
 
 }
 
-/*function geoCode(address, callback) {
-	var firstPart = 'http://geocoding.cloudmade.com/8ee2a50541944fb9bcedded5165f09d9/geocoding/v2/find.geojs?query='
-	var url = firstPart + encodeURI(address)
-	$.ajaxJSONP({
-	  url: url + '&callback=?',
-	  success: callback
-	})
-}*/
-
+function geoCode(address, callback) {
+    0//var firstPart = 'http://geocoding.cloudmade.com/8ee2a50541944fb9bcedded5165f09d9/geocoding/v2/find.geojs?query='
+    var firstPart = "http://geocoding.cloudmade.com/7d86fd2a4f044ff4825c2503a649da8d/geocoding/v2/find.js?query="
+    var url = firstPart + encodeURI(address)
+    $.ajax({
+	url: url + '&return_location=true', //&callback=cmGeocodeCallback',
+	//This always occurs
+	//complete: callback
+	success: callback
+    });
+}
 document.addEventListener('DOMContentLoaded', loadMap);
-//var geoLocationInput = document.getElementById('locationForm').value;
-//var geoLocationOutput;
-//geoCode(geoLocationInput,geoLocationOutput);
-//document.getElementById('locationForm').innerHTML=geoLocationOutput;
 
+function displayAddress(data){
+    //document.getElementById('printer').innerHTML=data.found;
+    document.getElementById('printer').innerHTML="hello2";
+}
+function getLocation(){
+    var geoLocationInput = document.getElementById('locationFormTxt').value;
+    geoCode(geoLocationInput,displayAddress);
+}
+    
 
