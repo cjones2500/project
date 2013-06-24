@@ -17,11 +17,12 @@ var interestClickCounter;
 //Example of another marker
 //var oxford2 = L.marker([51.75302,-1.25773]).bindPopup('This is Littleton, CO.').addTo(event2);
 
-function loadMap(){
-
 var map = L.mapbox.map('map', 'examples.map-4l7djmvo')
     .setView([51.75202, -1.25773], 15)
-    //.addControl(L.mapbox.geocoderControl('examples.map-4l7djmvo'));
+//.addControl(L.mapbox.geocoderControl('examples.map-4l7djmvo'));
+
+function loadMap(){
+    
 
 //If marker exsists compounds the marker 
 food.onclick = function(e) {
@@ -62,13 +63,14 @@ interestingTalk.onclick=  function(e){
 }
 
 function geoCode(address, callback) {
-    0//var firstPart = 'http://geocoding.cloudmade.com/8ee2a50541944fb9bcedded5165f09d9/geocoding/v2/find.geojs?query='
-    var firstPart = "http://geocoding.cloudmade.com/7d86fd2a4f044ff4825c2503a649da8d/geocoding/v2/find.js?query="
-    var url = firstPart + encodeURI(address)
+    var firstPart = "http://geocoding.cloudmade.com/7d86fd2a4f044ff4825c2503a649da8d/geocoding/v2/find.geojs?query="
+    var url = firstPart + encodeURI(address)  
     $.ajax({
-	url: url + '&return_location=true', //&callback=cmGeocodeCallback',
-	//This always occurs
-	//complete: callback
+	url: url + '&callback=?',
+	dataType: "jsonp",
+	error: function(){
+	    document.getElementById('printer').innerHTML="ERROR!";
+	},
 	success: callback
     });
 }
@@ -76,7 +78,10 @@ document.addEventListener('DOMContentLoaded', loadMap);
 
 function displayAddress(data){
     //document.getElementById('printer').innerHTML=data.found;
-    document.getElementById('printer').innerHTML="hello2";
+    var newLocation = new L.LatLng(data.features[0].centroid.coordinates[1], data.features[0].centroid.coordinates[0]);
+    map.setView(newLocation, 15)
+    //setCenter(newLocation);
+    //document.getElementById('printer').innerHTML=data.features[0];
 }
 function getLocation(){
     var geoLocationInput = document.getElementById('locationFormTxt').value;
