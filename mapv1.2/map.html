@@ -12,12 +12,13 @@
   <link type="text/css" rel="stylesheet" href="style.css"/>
 </head>
 <body>
-<button id="button"onclick="getLocation()" style="float:left;">Try It</button>
 <h1 id='printer' style="float:left;"></h1>
+<div id='geoCoder-ui'>
+<button id="button"onclick="getLocation()">GeoLocate</button>
 <form id="locationForm">
 Locate: <input id= "locationFormTxt" type="text",name="loc">
 </form>
-<div id='geoCoder-ui'>
+</div>
 <div id='map-ui'>
     <ul>
         <li><a href='#' id='Interesting Talks'>Interesting Talks</a></li>
@@ -25,6 +26,7 @@ Locate: <input id= "locationFormTxt" type="text",name="loc">
     </ul>
 </div>
 <div id="map"></div>
+<div class="timeArray"></div>
 <script type='text/javascript' src='mapscript.js'></script>
 </body>
 </html>

@@ -24,7 +24,7 @@ var interestClickCounter;
 var map = L.mapbox.map('map', 'examples.map-4l7djmvo')
     .setView([51.75202, -1.25773], defaultzoom) 
 
-function markerCatagory(location,catagory,description,userId,image){
+/*function markerCatagory(location,catagory,description,userId,image){
     this.location = location;
     this.catagory = catagory;
     this.catagory = description;
@@ -34,11 +34,17 @@ function markerCatagory(location,catagory,description,userId,image){
     this.getInfo = getEventMarkerInfo;
 }
 
-function setEventMarker(){}
+function setEventMarker(){}*/ // this is in progress
+
+function timeBars(){
+    // need to make a loop of time bars and control these 
+    $('.timeArray').append('<div id=timeSqaure style="left:50px"></div>');
+}
+
 
 
 function loadMap(){
-    
+    timeBars()
 //If marker exsists compounds the marker 
     food.onclick = function(e) {
 	if (foodClickCounter >= 1) {
