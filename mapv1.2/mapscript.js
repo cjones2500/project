@@ -85,7 +85,7 @@ function timeBars(){
 }
 
 document.getElementById('signupButton').onclick=function(){
-    var signupHyperLink = "signup.html";
+    var signupHyperLink = "loginForm.html";
     window.location=signupHyperLink;
 };
 
