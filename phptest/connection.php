@@ -2,7 +2,11 @@
 <body>
 
 <?php
-$con=mysqli_connect("mysql12.000webhost.com","a1773855_testun","book2500","a1773855_testdb");
+$myHost = "mysql12.000webhost.com"
+$myUserName = "a1773855_testun"
+$myPassword = "book2500" //how do I protect this better? 
+$mydb = "a1773855_testdb"
+$con=mysqli_connect($myHost,$myUserName,$myPassword,$mydb);
 
 // Check connection
 if (mysqli_connect_errno($con))
@@ -17,5 +21,5 @@ else
 mysqli_close($con);
 ?> 
 
-<html>
-<body>
+</body>
+</html>

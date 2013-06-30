@@ -29,6 +29,6 @@ body { margin:0; padding:0; }
         color: #FFF;
     }
 #signupButton{background:#3887BE;position:absolute;top:10px;left:10px;height:40px;width:70px;z-index:101;}
-
+#loginButton{background:#3887BE;position:absolute;top:60px;left:10px;height:40px;width:70px;z-index:101;}
 
 

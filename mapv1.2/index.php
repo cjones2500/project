@@ -4,7 +4,7 @@ $oSimpleLoginSystem = new SimpleLoginSystem();
 echo $oSimpleLoginSystem->getLoginBox();
 
 // class SimpleLoginSystem
-class SimpleLoginSystem {
+class SimpleLoginSystem{
 
     // variables
     var $aExistedMembers; // Existed members array
@@ -51,7 +51,7 @@ class SimpleLoginSystem {
 
         $sMd5Password = MD5($sPass);
 
-        $iCookieTime = time() + 24*60*60*30;
+        $iCookieTime = time() + 6*60*60*30;
         setcookie("member_name", $sName, $iCookieTime, '/');
         $_COOKIE['member_name'] = $sName;
         setcookie("member_pass", $sMd5Password, $iCookieTime, '/');

@@ -85,8 +85,13 @@ function timeBars(){
 }
 
 document.getElementById('signupButton').onclick=function(){
-    var signupHyperLink = "loginForm.html";
+    var signupHyperLink = "signup.html";
     window.location=signupHyperLink;
+};
+
+document.getElementById('loginButton').onclick=function(){
+    var loginHyperLink = "loginForm.html";
+    window.location=loginHyperLink;
 };
 
 function markerFunctionOnClick(e){
