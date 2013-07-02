@@ -38,6 +38,15 @@ function markerCatagory(location,catagory,description,userId,image){
     this.image = image;
 }
 
+//document.body.style.zoom="100%"
+
+/*function setPixelBase(){
+    var w=window.innerWidth;
+    var h=window.innerHeight;
+    window.resizeTo(w,h);
+};
+setPixelBase()*/
+
 /*function setEventMarker(){}*/ // this is in progress
 
 function timeBars(){
@@ -55,17 +64,18 @@ function timeBars(){
 
     for(var i=0; i<numberTimeBars;i++)
     {
-	var timeBarPosition = timeBarWidth*i*2 + 75 ;
+	//var timeBarPosition = timeBarWidth*i*2 + 75 ;
+	var timeBarPosition = i/(numberTimeBars/100) ; 
 	var timeBarNode = '<div id =' + arrayTimeBar[i]+ '></div>';
 	$('#timeArray').append(timeBarNode);
 	var getCurrentTimeBar = document.getElementById(arrayTimeBar[i])
 	getCurrentTimeBar.style["outlineStyle"] ="solid";
 	getCurrentTimeBar.style["outlineWidth"] = "1px";
 	getCurrentTimeBar.style["padding"] = "5px";
-	getCurrentTimeBar.style["right"] = timeBarPosition + "px";
+	getCurrentTimeBar.style["right"] = timeBarPosition + "%";
 	getCurrentTimeBar.style["bottom"] = "10px";
-	getCurrentTimeBar.style["width"] = timeBarWidth + "px";
-	getCurrentTimeBar.style["height"] = timeBarHeight + "px";
+	getCurrentTimeBar.style["width"] = "1%";
+	getCurrentTimeBar.style["height"] = "8%";
 	getCurrentTimeBar.style["backgroundColor"] = "#B4C7F3";
 	getCurrentTimeBar.style["position"] = "fixed";
 	getCurrentTimeBar.style["zIndex"] = "100";
@@ -83,7 +93,8 @@ function timeBars(){
 	};	
     }
 }
-
+document.getElementById('loginButton').innerHTML="Login";
+//document.getElementById('loginButton').style.fontSize="large";
 document.getElementById('loginButton').onclick=function(){
     var loginHyperLink = "loginForm.html";
     window.location=loginHyperLink;
@@ -178,9 +189,11 @@ function mouseOnLogo(){
 	document.getElementById('logoBox').style.display = "block";    
 	$(document).ready(function(){
 	    $("#logoBox").animate({
-		top:'96px', //SHOULDN'T LEAVE THIS HARDCODED!!!!
+		top:'15%', //SHOULDN'T LEAVE THIS HARDCODED!!!!
+		left:'0%',
 		display:'block',
-		height:'200px',
+		height:'40%',
+		width:'10%',
 	    },600);
 	});
     //};
@@ -221,4 +234,29 @@ map.markerLayer.on('click',function(e) {
 
 });
 
+/*$(window).resize(function(){
+  resizeUI();
+}); 
+$(document).ready(function(){
+  resizeUI();
+});
+
+// resize on page load AND window resize
+function resizeUI(){
+ if($(window).width() > 500){
+ $('#header').css('position', 'fixed');
+ }
+ else{
+ $('#header').css('position', 'static');
+ }
+} */
+
+var zoomRatio = $(window).width() / 1024; 
+//if your site is fixed at 1024 px for example
+
+$(document).ready(function(){
+
+$(html).css("zoom",zoomRatio);
+
+});
 
