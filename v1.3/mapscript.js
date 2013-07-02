@@ -93,12 +93,12 @@ function timeBars(){
 	};	
     }
 }
-document.getElementById('loginButton').innerHTML="Login";
+//document.getElementById('loginButton').innerHTML="Login";
 //document.getElementById('loginButton').style.fontSize="large";
-document.getElementById('loginButton').onclick=function(){
-    var loginHyperLink = "loginForm.html";
-    window.location=loginHyperLink;
-};
+//document.getElementById('loginButton').onclick=function(){
+//    var loginHyperLink = "loginForm.html";
+//    window.location=loginHyperLink;
+//};
 
 function markerFunctionOnClick(e){
     document.getElementById('sideBar').innerHTML = "<h1> This is where the Marker Data will go eventually! </h1>";
@@ -176,10 +176,10 @@ function getLocation(){
 //This checks for DOMLoadedContent
 document.addEventListener('DOMContentLoaded', loadMap);
 
-document.getElementById('signupButton').onclick=function(){
-    var signupHyperLink = "signup.html";
-    window.location=signupHyperLink;
-};
+//document.getElementById('signupButton').onclick=function(){
+//    var signupHyperLink = "signup.html";
+//    window.location=signupHyperLink;
+//};
 
 
 var imglogoId = document.getElementById('imglogo');
