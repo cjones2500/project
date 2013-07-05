@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+  <script src="map_files/jquery.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <script src="map_files/mapbox.js"></script>
+  <link href="map_files/mapbox.css" rel="stylesheet">
+  <script src="map_files/zepto.js" type="text/javascript"></script>
+  <script src="map_files/leaflet-knn.js"></script>
+  <!--<link rel="stylesheet" href="../dist/leaflet.css" />-->
+  <script src="map_files/jquery-1.js"></script>
+  <link type="text/css" rel="stylesheet" href="map_files/style.css">
+</head>
+<body>
+  <img id="imglogo" src="map_files/logo.jpg">
+  <img id="intelligentIcon" src="map_files/intelligent.png">
+  <img id="miscIcon" src="map_files/misc.png">
+  <img id="politicalIcon" src="map_files/political.png">
+  <img id="musicIcon" src="map_files/music2.png">
+  <img id="starIcon" src="map_files/star.png">
+  <img id="partyIcon" src="map_files/party.png">
+  <img id="extraIcon" src="map_files/extra.png">
+  <img id="extraIcon2" src="map_files/horse.png">
+  <img id="foodIcon" src="map_files/food.png">
+  <img id="extraIcon3" src="map_files/extra3.png">
+<div id="logoBox"></div>
+<a href="file:///home/christopher/Desktop/project/v1.6/signup.html" class="signUp">Sign Up</a>
+<a href="file:///home/christopher/Desktop/project/v1.6/loginForm.html" class="Login">Login</a>
+<!--<div id='signupButton'>Sign up</div>-->
+<!--<div id='loginButton'></div>-->
+<div id="sideBar"></div>
+<div id="sideBar2"></div>
+<!--<button id="geoCoder-ui"  onclick="getLocation()">GeoLocate</button>-->
+<form style="top: 80%; display: none;" id="locationForm">
+  <input value="New york" id="locationFormTxt" placeholder="e.g. London, New York" name="loc" type="text">
+</form>
+
+<!-- NEED TO ADD THIS BACK INTO THE CODE
+<!--<div id='map-ui'>
+    <ul>
+        <li><a href='#' id='Interesting Talks'>Interesting Talks</a></li>
+	<li><a href='#' id='Foodies'>Foodies</a></li>
+    </ul>
+</div>-->
+<div id="timeArray"></div>
+<div tabindex="0" class="leaflet-container leaflet-fade-anim" id="map"><div style="transform: translate(0px, -138px);" class="leaflet-map-pane"><div class="leaflet-tile-pane"><div class="leaflet-layer"><div style="z-index: 1;" class="leaflet-tile-container leaflet-zoom-animated"></div><div style="z-index: 2;" class="leaflet-tile-container leaflet-zoom-animated"><img src="map_files/12317_004.jpeg" style="height: 256px; width: 256px; transform: translate(470px, 84px);" class="leaflet-tile leaflet-tile-loaded"><img src="map_files/12318_004.jpeg" style="height: 256px; width: 256px; transform: translate(470px, 340px);" class="leaflet-tile leaflet-tile-loaded"><img src="map_files/12317_002.jpeg" style="height: 256px; width: 256px; transform: translate(214px, 84px);" class="leaflet-tile leaflet-tile-loaded"><img src="map_files/12317_005.jpeg" style="height: 256px; width: 256px; transform: translate(726px, 84px);" class="leaflet-tile leaflet-tile-loaded"><img src="map_files/12318_002.jpeg" style="height: 256px; width: 256px; transform: translate(214px, 340px);" class="leaflet-tile leaflet-tile-loaded"><img src="map_files/12318_003.jpeg" style="height: 256px; width: 256px; transform: translate(726px, 340px);" class="leaflet-tile leaflet-tile-loaded"><img src="map_files/12316.jpeg" style="height: 256px; width: 256px; transform: translate(470px, -172px);" class="leaflet-tile leaflet-tile-loaded"><img src="map_files/12319_002.jpeg" style="height: 256px; width: 256px; transform: translate(470px, 596px);" class="leaflet-tile leaflet-tile-loaded"><img src="map_files/12316_005.jpeg" style="height: 256px; width: 256px; transform: translate(214px, -172px);" class="leaflet-tile leaflet-tile-loaded"><img src="map_files/12316_003.jpeg" style="height: 256px; width: 256px; transform: translate(726px, -172px);" class="leaflet-tile leaflet-tile-loaded"><img src="map_files/12319_004.jpeg" style="height: 256px; width: 256px; transform: translate(214px, 596px);" class="leaflet-tile leaflet-tile-loaded"><img src="map_files/12319.jpeg" style="height: 256px; width: 256px; transform: translate(726px, 596px);" class="leaflet-tile leaflet-tile-loaded"><img src="map_files/12317_003.jpeg" style="height: 256px; width: 256px; transform: translate(-42px, 84px);" class="leaflet-tile leaflet-tile-loaded"><img src="map_files/12317.jpeg" style="height: 256px; width: 256px; transform: translate(982px, 84px);" class="leaflet-tile leaflet-tile-loaded"><img src="map_files/12318.jpeg" style="height: 256px; width: 256px; transform: translate(-42px, 340px);" class="leaflet-tile leaflet-tile-loaded"><img src="map_files/12318_005.jpeg" style="height: 256px; width: 256px; transform: translate(982px, 340px);" class="leaflet-tile leaflet-tile-loaded"><img src="map_files/12316_004.jpeg" style="height: 256px; width: 256px; transform: translate(-42px, -172px);" class="leaflet-tile leaflet-tile-loaded"><img src="map_files/12316_002.jpeg" style="height: 256px; width: 256px; transform: translate(982px, -172px);" class="leaflet-tile leaflet-tile-loaded"><img src="map_files/12319_005.jpeg" style="height: 256px; width: 256px; transform: translate(-42px, 596px);" class="leaflet-tile leaflet-tile-loaded"><img src="map_files/12319_003.jpeg" style="height: 256px; width: 256px; transform: translate(982px, 596px);" class="leaflet-tile leaflet-tile-loaded"></div></div></div><div class="leaflet-objects-pane"><div class="leaflet-shadow-pane"></div><div class="leaflet-overlay-pane"></div><div class="leaflet-marker-pane"></div><div class="leaflet-popup-pane"></div></div></div><div class="leaflet-control-container"><div class="leaflet-top leaflet-left"></div><div class="leaflet-top leaflet-right"><div style="display: none;" class="leaflet-control-grid map-tooltip leaflet-control"><a title="close" href="#" class="close">close</a><div class="map-tooltip-content"></div></div></div><div class="leaflet-bottom leaflet-left"></div><div class="leaflet-bottom leaflet-right"><div class="map-legends leaflet-control"></div><div class="leaflet-control-attribution leaflet-control"><a href="http://mapbox.com/about/maps" target="_blank">Terms &amp; Feedback</a></div></div></div></div>
+<script type="text/javascript" src="map_files/mapscript.js"></script>
+
+
+
+
+</body></html>

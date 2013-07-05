@@ -181,29 +181,11 @@ $(window).load(function () {
 	if (event.which == 13 || event.which == 10 ) {	 
 	    event.preventDefault();
 	    getLocation();
-	    $('#locationFormTxt').animate({bottom:"10%"});
-	    //$('#locationFormTxt').css("top","80%");
+	    $('#locationForm').css("top","80%");
 	}
     });
 });
 
-var buttonBoxToggle = 1;
-$(document).ready(function(){
-    $("#buttonBox").click(function () {
-	//$("#sideBar").slideToggle("slow",{direction:"right"});
-	$("#sideBar").animate({width: 'toggle'});
-	var buttonBoxdistance = '2%';
-	var originalButtonBoxDistance = '22%';
-	if (buttonBoxToggle == 1){
-	    $("#buttonBox").animate({right: buttonBoxdistance});
-	    buttonBoxToggle = 0
-	}
-	else{
-	    $("#buttonBox").animate({right: originalButtonBoxDistance});
-	    buttonBoxToggle = 1
-	}
-    });
-});
 //document.getElementById('signupButton').onclick=function(){
 //    var signupHyperLink = "signup.html";
 //    window.location=signupHyperLink;
